@@ -18,6 +18,7 @@ def contacto(request):
     return render(request, "usuarios/contacto.html", {"form": formulario})
 
 def gracias(request):
-    return render(request, "usuarios/gracias.html")
+    usuarios = usuario.objects.all()
+    return render(request, "usuarios/gracias.html",{"usuarios": usuarios})
 
 

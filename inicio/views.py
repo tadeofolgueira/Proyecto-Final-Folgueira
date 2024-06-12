@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Modelo as Modelo
+from .models import Modelo
 
 
 def inicio(request):

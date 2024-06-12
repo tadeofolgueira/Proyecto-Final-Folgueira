@@ -3,3 +3,11 @@
 <h1>¡Gracias por tu mensaje!</h1>
 <p>Nos pondremos en contacto contigo pronto.</p>
 {% endblock content %}
+{% block li %}
+<h1>Listado de Usuarios Registrados</h1>
+<ul>
+    {% for usuario in usuarios %}
+        <li>{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.email }}</li>
+    {% endfor %}
+</ul>
+{% endblock li %}
