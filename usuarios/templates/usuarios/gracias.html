@@ -1,4 +1,7 @@
 {% extends "index.html" %}
+{% block title_head %}
+Gracias!
+{% endblock title_head %}
 {% block content %}
 <h1>¡Gracias por tu mensaje!</h1>
 <p>Nos pondremos en contacto contigo pronto.</p>
@@ -7,7 +10,8 @@
 <h1>Listado de Usuarios Registrados</h1>
 <ul>
     {% for usuario in usuarios %}
-        <li>{{ usuario.nombre }} {{ usuario.apellido }} - {{ usuario.email }}</li>
+        <li style="display:block; width:100%;padding:0;">{{ usuario.nombre }} {{ usuario.apellido }}</li>
     {% endfor %}
 </ul>
 {% endblock li %}
+

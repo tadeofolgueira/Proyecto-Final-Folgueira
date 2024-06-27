@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+{% block h1_header %}
+Casas
+{% endblock h1_header %}
+
+{% block main %}
+{% if casas %}
+    <ul>
+        {% for casa in casas %}
+        <li>{{casa}}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+<p>No hay casas para mostrar</p>
+{% endif %}
+{% endblock main %}
+
+
+
