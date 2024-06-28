@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% block title_head %}
+Casa
+{% endblock title_head %}
+
+{% block h1_header %}
+{{Casa}}
+{% endblock h1_header %}
+{% block main %}
+
+<ul>
+
+<li>
+    Tipo:{{Casa.tipo}}
+</li>
+<li>
+    Estilo:{{Casa.estilo}}
+</li>
+<li>
+    Inmoviliaria:{{Casa.inmoviliaria}}
+</li>
+<li>
+    Fecha:{{Casa.fecha}}
+</li>
+
+</ul>
+
+{% endblock main %}
+

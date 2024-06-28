@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block title_head %}
+Eliminar Casa
+{% endblock title_head %}
+
+{% block h1_header %}
+Eliminar la casa {{Casa}}
+{% endblock h1_header %}
+{% block main %}
+
+<form action={% url "borrar_casa" casa.pk %} method="post">
+    {% csrf_token %}
+    <p>Confirma la eliminacion de la casa {{Casa}}?</p>
+    <input type="submit" value="Eliminar">
+</form>
+
+{% endblock main %}

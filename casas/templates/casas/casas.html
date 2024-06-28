@@ -1,19 +1,40 @@
 {% extends "index.html" %}
+{% block title_head %}
+Casas
+{% endblock title_head %}
 {% block h1_header %}
 Casas
 {% endblock h1_header %}
 
 {% block main %}
+
+<a href={% url "crear_casa"  %}>Crear Casa</a>
+
+<form action={% url "casas" %}>
+    {{formulario}}
+    <input type="submit" value="Buscar">
+</form>
+
 {% if casas %}
     <ul>
         {% for casa in casas %}
-        <li>{{casa}}</li>
+        <li><a href={% url "ver_casa" casa.pk%}>{{casa}}</a>
+            <a href={% url "actualizar_casa" casa.pk %} >Actualizar</a>
+            <a href={% url "borrar_casa" casa.pk %}>Eliminar</a>
+        </li>
         {% endfor %}
     </ul>
 {% else %}
 <p>No hay casas para mostrar</p>
 {% endif %}
+
 {% endblock main %}
 
+{% comment %} {% block button2_nav %}
+<a href={% url "inicio" %}>Inicio</a>
+{% endblock button2_nav %}
+{% endblock main %} {% endcomment %}
+
+{% comment %} <a href={% url "borrar_casa" casa.pk %}>Eliminar</a> {% endcomment %}
 
 

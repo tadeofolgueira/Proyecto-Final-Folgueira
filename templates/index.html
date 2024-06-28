@@ -25,7 +25,8 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" {% block button1_nav %}>LISTADO</a> {% endblock button1_nav %}
+                <a class="navbar-brand" {% block button1_nav %} href = {% url "contacto" %}>LISTADO</a> {% endblock button1_nav %}
+                <a class="navbar-brand" {% block button2_nav %} href = {% url "inicio" %}>Inicio</a> {% endblock button2_nav %}
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto my-2 my-lg-0" >{% block NAV %}
@@ -35,13 +36,13 @@
                         <li class="nav-item">
                             <form action={% url "logout" %} method="post">
                                 {% csrf_token %}
-                                <button class="nav-link cerrar-sesion" style="background-color: black"{% block botton2_nav %}>CERRAR SESION</button>
+                                <button class="nav-link cerrar-sesion" style="background-color: black"{% block botton3_nav %}>CERRAR SESION</button>
                             </form>
-                        </li> {% endblock botton2_nav %}
-                        <li class="nav-item"><a class="nav-link" href={% url "inicio" %} {% block botton3_nav %}>HOLA</a></li> {% endblock botton3_nav %}
+                        </li> {% endblock botton3_nav %}
+                        <li class="nav-item"><a class="nav-link" href={% url "inicio" %} {% block botton4_nav %}>HOLA</a></li> {% endblock botton4_nav %}
                         {% else %}
-                        <li class="nav-item"><a class="nav-link" href={% url "login" %} {% block botton4_nav %}>INICIAR SESION</a></li> {% endblock botton4_nav %}
-                        <li class="nav-item"><a class="nav-link" href={% url "registro" %} {% block botton5_nav %}>REGISTRARSE</a></li> {% endblock botton5_nav %}
+                        <li class="nav-item"><a class="nav-link" href={% url "login" %} {% block botton5_nav %}>INICIAR SESION</a></li> {% endblock botton5_nav %}
+                        <li class="nav-item"><a class="nav-link" href={% url "registro" %} {% block botton6_nav %}>REGISTRARSE</a></li> {% endblock botton6_nav %}
                         {% endif %}
                     </ul>{% endblock NAV %}
                 </div>

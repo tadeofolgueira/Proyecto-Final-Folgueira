@@ -1,6 +1,7 @@
 from django.db import models
 
-class casa(models.Model):
+class Casa(models.Model):
+    tipo = models.CharField(max_length=20,default="Desconocido")
     estilo = models.CharField(max_length=20)
     inmoviliaria = models.CharField(max_length=20)
     fecha = models.DateField()
