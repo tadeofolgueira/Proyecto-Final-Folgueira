@@ -4,6 +4,7 @@ from casas.models import Casa
 from .forms import BusquedaCasas
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.views.generic.detail import DetailView
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 
 class Casas(ListView):
@@ -31,11 +32,13 @@ class CrearCasa(CreateView):
     success_url = reverse_lazy("casas")
     fields = ["tipo","estilo","inmoviliaria","fecha"]
     
+@login_required   
 class BorrarCasa(DeleteView):
     model = Casa 
     template_name = "casas/borrar_casa.html"
     success_url = reverse_lazy("casas")
     
+@login_required  
 class ActualizarCasa(UpdateView):
     model = Casa
     template_name = "casas/actualizar_casa.html"

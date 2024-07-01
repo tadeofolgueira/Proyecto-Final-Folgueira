@@ -7,4 +7,4 @@ class Casa(models.Model):
     fecha = models.DateField()
 
     def __str__(self):
-        return f"Casa estilo {self.estilo} de la inmoviliaria {self.inmoviliaria}"
+        return f"{self.tipo.capitalize()} estilo {self.estilo} de la inmoviliaria {self.inmoviliaria}"

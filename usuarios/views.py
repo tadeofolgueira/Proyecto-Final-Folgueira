@@ -1,9 +1,15 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.views.generic.detail import DetailView
 from django.contrib.auth import authenticate, login as login_django
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import PasswordChangeView
+from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 from .models import usuario
-from .forms import ContactoForm, Registro
+from .forms import ContactoForm, Registro, EditarPerfil, CambiarContrasenia
 
 def contacto(request):
     if request.method == "POST":
@@ -48,4 +54,21 @@ def registro(request):
             return redirect("login")
     return render(request, "usuarios/registro.html", {"formulario":formulario})
 
+@login_required
+def editar_perfil(request):
+    
+    formulario = EditarPerfil(instance=request.user) 
+    
+    if request.method == "POST":
+        formulario = EditarPerfil(request.POST, instance=request.user)
+        if formulario.is_valid():
+            formulario.save()
+            return redirect("editar_perfil")
+    
+    return render(request,"usuarios/editar_perfil.html",{"formulario":formulario})
 
+
+class CambiarContrasenia(LoginRequiredMixin, PasswordChangeView):
+    template_name = "usuarios/cambiar_constrasenia.html"
+    success_url = reverse_lazy("editar_perfil")
+    form_class = CambiarContrasenia

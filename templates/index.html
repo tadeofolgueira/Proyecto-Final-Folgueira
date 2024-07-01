@@ -25,7 +25,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" {% block button1_nav %} href = {% url "contacto" %}>LISTADO</a> {% endblock button1_nav %}
+                <a class="navbar-brand" {% block button1_nav %} href = {% url "contacto" %}>Envianos un mensaje</a> {% endblock button1_nav %}
                 <a class="navbar-brand" {% block button2_nav %} href = {% url "inicio" %}>Inicio</a> {% endblock button2_nav %}
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -39,7 +39,7 @@
                                 <button class="nav-link cerrar-sesion" style="background-color: black"{% block botton3_nav %}>CERRAR SESION</button>
                             </form>
                         </li> {% endblock botton3_nav %}
-                        <li class="nav-item"><a class="nav-link" href={% url "inicio" %} {% block botton4_nav %}>HOLA</a></li> {% endblock botton4_nav %}
+                        <li class="nav-item"><a class="nav-link" href={% url "editar_perfil" %} {% block botton4_nav %}>Editar Perfil</a></li> {% endblock botton4_nav %}
                         {% else %}
                         <li class="nav-item"><a class="nav-link" href={% url "login" %} {% block botton5_nav %}>INICIAR SESION</a></li> {% endblock botton5_nav %}
                         <li class="nav-item"><a class="nav-link" href={% url "registro" %} {% block botton6_nav %}>REGISTRARSE</a></li> {% endblock botton6_nav %}
@@ -58,7 +58,7 @@
                     </div>
                     {% block main %}
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5">Start Bootstrap can help you build better websites using the Bootstrap framework! Just download a theme and start customizing, no strings attached!</p>
+                        <p class="text-white-75 mb-5"></p>
                             <a class="btn btn-primary btn-xl" href={% url "inicio" %}>{% block button1_body %}ATRÁS</a>{% endblock button1_body %}
                     {% endblock main %}
                     </div>
