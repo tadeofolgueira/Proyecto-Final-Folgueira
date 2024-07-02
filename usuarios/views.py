@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
-from .models import usuario
+from .models import usuario, DatosUser
 from .forms import ContactoForm, Registro, EditarPerfil, CambiarContrasenia
 
 def contacto(request):
@@ -40,6 +40,8 @@ def login(request):
             
             users = authenticate(username=user, password=contrasenia)
             login_django(request,users)
+            
+            DatosUser.objects.get_or_create(user=users)
             return redirect ("inicio")
     
     return render(request, "usuarios/login.html", {"formulario":formulario})
@@ -57,11 +59,14 @@ def registro(request):
 @login_required
 def editar_perfil(request):
     
-    formulario = EditarPerfil(instance=request.user) 
+    formulario = EditarPerfil(initial = {"avatar": request.user.datosuser.avatar}, instance=request.user)
     
     if request.method == "POST":
-        formulario = EditarPerfil(request.POST, instance=request.user)
+        formulario = EditarPerfil(request.POST,request.FILES, instance=request.user)
         if formulario.is_valid():
+            avatar = formulario.cleaned_data.get("avatar")
+            request.user.datosuser.avatar = avatar
+            request.user.datosuser.save()
             formulario.save()
             return redirect("editar_perfil")
     
