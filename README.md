@@ -8,3 +8,5 @@ Volviendo al inicio tenemos el apartado de Casas. Allí el usuario podrá crear 
 Si tocamos en nuestro nombre podremos editar nuestros datos que usamos al momento de crear el usuario, y tambien estará la opcion de seleccionar un avatar y elegir nuestro sexo; ambas opciones modificables cuando queramos. Si observamos en la parte inferior tendremos la opcion de cambiar nuestra contraseña si no estamos conformes con la actual.
 
 Por último, en cualquiera de las vistas del proyecto, si deslizamos hacia abajo veremos un apartado de "Acerca del creador" con un poco de información acerca de mi.
+
+Video explicativo: https://www.youtube.com/watch?v=df07gsdA6UA
