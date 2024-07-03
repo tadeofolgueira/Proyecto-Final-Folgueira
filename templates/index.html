@@ -39,7 +39,11 @@
                                 <button class="nav-link cerrar-sesion" style="background-color: black"{% block botton3_nav %}>CERRAR SESION</button>
                             </form>
                         </li> {% endblock botton3_nav %}
-                        <li class="nav-item"><a class="nav-link" href={% url "editar_perfil" %} {% block botton4_nav %}>Editar Perfil</a></li> {% endblock botton4_nav %}
+                        <li class="nav-item"><a class="nav-link" href={% url "editar_perfil" %} {% block botton4_nav %}>{{ request.user.username }}
+                            {% if request.user.datosuser.avatar %}
+                                <img src="{{ request.user.datosuser.avatar.url }}" alt="Avatar de {{ request.user.username }}" style="height:50px;width:50px;margin-top:-10px">
+                            {% endif %}
+                        </a></li> {% endblock botton4_nav %}
                         {% else %}
                         <li class="nav-item"><a class="nav-link" href={% url "login" %} {% block botton5_nav %}>INICIAR SESION</a></li> {% endblock botton5_nav %}
                         <li class="nav-item"><a class="nav-link" href={% url "registro" %} {% block botton6_nav %}>REGISTRARSE</a></li> {% endblock botton6_nav %}
