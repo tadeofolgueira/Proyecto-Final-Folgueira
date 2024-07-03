@@ -11,8 +11,17 @@ Editar perfil
 <form action={% url "editar_perfil" %} method="post" enctype="multipart/form-data">
 
     {% csrf_token %}
-    
-    {{formulario}}
+ 
+{{formulario}}
+
+    {% comment %} {{ formulario.as_p }} {% endcomment %}
+
+    {% comment %} {% if request.user.datosuser.avatar %}
+        <img src="{{ request.user.datosuser.avatar.url }}" alt="Avatar de {{ request.user.username }}" style="max-width: 150px; max-height: 150px;">
+    {% else %}
+        <p>No hay avatar disponible</p>
+    {% endif %} {% endcomment %}
+
 
     <input type="submit" value="Actualizar">
 
