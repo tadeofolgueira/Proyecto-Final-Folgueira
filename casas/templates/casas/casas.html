@@ -18,9 +18,10 @@ Casas
 {% if casas %}
     <ul>
         {% for casa in casas %}
-        <li><a href={% url "ver_casa" casa.pk%}>{{casa}}</a>
+        <li><a>{{casa}}</a>
             <a href={% url "actualizar_casa" casa.pk %} >Actualizar</a>
             <a href={% url "borrar_casa" casa.pk %}>Eliminar</a>
+            <a href={% url "ver_casa" casa.pk%}>Ver</a>
         </li>
         {% endfor %}
     </ul>

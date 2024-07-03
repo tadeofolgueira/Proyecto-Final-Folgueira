@@ -10,5 +10,11 @@ def __str__(self):
 
 class DatosUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(upload_to="avatares", blank=True, null=True)
+    avatar = models.ImageField(upload_to="avatares", blank=True, null=True,default="Sin avatar aún")
+    sexo_opciones = [
+        ("M", "Masculino"),
+        ("F", "Femenino"),
+        ("O", "Otro"),
+    ]
+    sexo = models.CharField(max_length=1, choices=sexo_opciones, default="Aun no se ha expecifiado el sexo")
     

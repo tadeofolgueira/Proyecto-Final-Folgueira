@@ -4,23 +4,30 @@ Casa
 {% endblock title_head %}
 
 {% block h1_header %}
-{{Casa}}
+{{casa}}
 {% endblock h1_header %}
 {% block main %}
 
 <ul>
 
 <li>
-    Tipo:{{Casa.tipo}}
+    Tipo:{{casa.tipo}}
 </li>
 <li>
-    Estilo:{{Casa.estilo}}
+    Estilo:{{casa.estilo}}
 </li>
 <li>
-    Inmoviliaria:{{Casa.inmoviliaria}}
+    Inmoviliaria:{{casa.inmoviliaria}}
 </li>
 <li>
-    Fecha:{{Casa.fecha}}
+    Fecha:{{casa.fecha}}
+</li>
+<li>
+    {% if casa.imagen %}
+    <img src="{{ casa.imagen.url }}" alt="Imagen de la casa" style="height:550px;width:750px">
+{% else %}
+    No hay imagen disponible
+{% endif %}
 </li>
 
 </ul>

@@ -59,13 +59,15 @@ def registro(request):
 @login_required
 def editar_perfil(request):
     
-    formulario = EditarPerfil(initial = {"avatar": request.user.datosuser.avatar}, instance=request.user)
+    formulario = EditarPerfil(initial = {"avatar": request.user.datosuser.avatar,"sexo":request.user.datosuser.sexo}, instance=request.user)
     
     if request.method == "POST":
         formulario = EditarPerfil(request.POST,request.FILES, instance=request.user)
         if formulario.is_valid():
             avatar = formulario.cleaned_data.get("avatar")
             request.user.datosuser.avatar = avatar
+            sexo = formulario.cleaned_data.get("sexo")
+            request.user.datosuser.sexo = sexo
             request.user.datosuser.save()
             formulario.save()
             return redirect("editar_perfil")
@@ -74,6 +76,6 @@ def editar_perfil(request):
 
 
 class CambiarContrasenia(LoginRequiredMixin, PasswordChangeView):
-    template_name = "usuarios/cambiar_constrasenia.html"
+    template_name = "usuarios/cambiar_contrasenia.html"
     success_url = reverse_lazy("editar_perfil")
     form_class = CambiarContrasenia

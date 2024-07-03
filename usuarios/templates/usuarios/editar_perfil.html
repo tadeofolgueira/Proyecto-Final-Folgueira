@@ -11,7 +11,7 @@ Editar perfil
 <form action={% url "editar_perfil" %} method="post" enctype="multipart/form-data">
 
     {% csrf_token %}
-
+    
     {{formulario}}
 
     <input type="submit" value="Actualizar">
